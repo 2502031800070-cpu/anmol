@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Office Registration</title>
+
+    <title>Office Registration | Anmol</title>
 
     <style>
         * {
@@ -15,7 +16,7 @@
 
         body {
             min-height: 100vh;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            background: linear-gradient(135deg, #0f172a, #2563eb);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -24,34 +25,46 @@
 
         .container {
             width: 100%;
-            max-width: 1000px;
-            background: #ffffff;
-            border-radius: 18px;
+            max-width: 1050px;
+            background: white;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
             display: flex;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
         }
 
-        /* Left Section */
-        .left-section {
+        /* LEFT SIDE */
+
+        .left {
             width: 40%;
-            background: linear-gradient(160deg, #0f4c81, #123c69);
+            padding: 55px 40px;
+            background: linear-gradient(160deg, #1d4ed8, #172554);
             color: white;
-            padding: 50px 35px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            color: #1d4ed8;
+            border-radius: 15px;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
         }
 
-        .left-section h1 {
+        .left h1 {
             font-size: 38px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        .left-section p {
+        .left p {
             color: #dbeafe;
             line-height: 1.7;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .features {
@@ -59,65 +72,62 @@
         }
 
         .features li {
-            margin: 18px 0;
-            font-size: 15px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #f8fafc;
         }
 
-        .features li::before {
-            content: "✓";
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 25px;
-            height: 25px;
-            margin-right: 10px;
+        .check {
+            width: 27px;
+            height: 27px;
             border-radius: 50%;
             background: #22c55e;
-            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-weight: bold;
         }
 
-        /* Right Section */
-        .right-section {
+        /* RIGHT SIDE */
+
+        .right {
             width: 60%;
-            padding: 40px;
+            padding: 45px;
         }
 
-        .form-header {
+        .heading {
             margin-bottom: 25px;
         }
 
-        .form-header h2 {
-            color: #1e293b;
+        .heading h2 {
             font-size: 30px;
+            color: #0f172a;
             margin-bottom: 8px;
         }
 
-        .form-header p {
+        .heading p {
             color: #64748b;
             font-size: 14px;
         }
 
-        form {
-            width: 100%;
-        }
-
-        .form-row {
+        .row {
             display: flex;
-            gap: 20px;
+            gap: 18px;
         }
 
-        .form-group {
-            width: 100%;
-            margin-bottom: 18px;
+        .field {
+            flex: 1;
+            margin-bottom: 17px;
         }
 
         label {
             display: block;
-            margin-bottom: 7px;
+            color: #334155;
             font-size: 14px;
             font-weight: 600;
-            color: #334155;
+            margin-bottom: 7px;
         }
 
         input,
@@ -127,65 +137,49 @@
             padding: 12px 14px;
             border: 1px solid #cbd5e1;
             border-radius: 8px;
-            font-size: 14px;
             outline: none;
-            transition: 0.3s;
-            background: #fff;
+            font-size: 14px;
+            transition: 0.2s;
         }
 
         input:focus,
         select:focus,
         textarea:focus {
             border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            box-shadow: 0 0 0 3px rgba(37,99,235,.1);
         }
 
         textarea {
             resize: vertical;
-            min-height: 90px;
+            min-height: 80px;
         }
 
-        .password-box {
+        .password {
             position: relative;
         }
 
-        .password-box input {
-            padding-right: 75px;
+        .password input {
+            padding-right: 60px;
         }
 
-        .show-password {
+        .show {
             position: absolute;
-            right: 12px;
+            right: 10px;
             top: 50%;
             transform: translateY(-50%);
             border: none;
             background: none;
             color: #2563eb;
-            cursor: pointer;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
-        }
-
-        .password-strength {
-            height: 5px;
-            width: 100%;
-            background: #e2e8f0;
-            margin-top: 7px;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .strength-bar {
-            height: 100%;
-            width: 0;
-            transition: 0.3s;
+            cursor: pointer;
         }
 
         .terms {
             display: flex;
             align-items: flex-start;
-            gap: 9px;
-            margin: 8px 0 20px;
+            gap: 8px;
+            margin: 5px 0 20px;
         }
 
         .terms input {
@@ -194,109 +188,95 @@
         }
 
         .terms label {
-            font-weight: normal;
             font-size: 13px;
+            font-weight: normal;
             line-height: 1.5;
-            margin: 0;
         }
 
         .terms a {
             color: #2563eb;
-            text-decoration: none;
         }
 
-        .terms a:hover {
-            text-decoration: underline;
-        }
-
-        .register-btn {
+        .register {
             width: 100%;
-            border: none;
             padding: 14px;
+            border: none;
+            border-radius: 8px;
             background: #2563eb;
             color: white;
-            border-radius: 8px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: 0.3s;
+            transition: .2s;
         }
 
-        .register-btn:hover {
+        .register:hover {
             background: #1d4ed8;
             transform: translateY(-1px);
         }
 
-        .login-link {
-            text-align: center;
-            margin-top: 18px;
-            color: #64748b;
-            font-size: 14px;
-        }
-
-        .login-link a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .error {
-            color: #dc2626;
-            font-size: 12px;
-            margin-top: 5px;
+        .message {
             display: none;
-        }
-
-        .success-message {
-            display: none;
+            padding: 12px;
             background: #dcfce7;
             color: #166534;
-            padding: 12px;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             text-align: center;
             font-size: 14px;
         }
 
-        /* Responsive Design */
-        @media (max-width: 800px) {
+        .login {
+            text-align: center;
+            margin-top: 18px;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .login a {
+            color: #2563eb;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* MOBILE */
+
+        @media(max-width: 800px) {
+
             .container {
                 flex-direction: column;
             }
 
-            .left-section,
-            .right-section {
+            .left,
+            .right {
                 width: 100%;
             }
 
-            .left-section {
-                padding: 35px 30px;
+            .left {
+                padding: 35px 25px;
             }
 
-            .left-section h1 {
+            .left h1 {
                 font-size: 30px;
+            }
+
+            .right {
+                padding: 30px 25px;
             }
         }
 
-        @media (max-width: 550px) {
-            .form-row {
+        @media(max-width: 500px) {
+
+            .row {
                 flex-direction: column;
                 gap: 0;
             }
 
-            .right-section {
-                padding: 25px 20px;
+            .right {
+                padding: 25px 18px;
             }
 
-            .left-section {
-                padding: 30px 20px;
-            }
-
-            .left-section h1 {
-                font-size: 27px;
-            }
-
-            .form-header h2 {
+            .heading h2 {
                 font-size: 25px;
             }
         }
@@ -305,429 +285,442 @@
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <!-- Left Side -->
-        <div class="left-section">
+    <!-- LEFT -->
+    <div class="left">
 
-            <h1>Office Portal</h1>
+        <div class="logo">A</div>
 
-            <p>
-                Create your office account and manage your organization's
-                information securely from one place.
-            </p>
+        <h1>Office Portal</h1>
 
-            <ul class="features">
-                <li>Secure account registration</li>
-                <li>Employee management</li>
-                <li>Office information management</li>
-                <li>Easy access to your dashboard</li>
-            </ul>
+        <p>
+            Register your office and manage your organization
+            through our simple and secure portal.
+        </p>
 
-        </div>
+        <ul class="features">
 
-        <!-- Right Side -->
-        <div class="right-section">
+            <li>
+                <span class="check">✓</span>
+                Secure registration
+            </li>
 
-            <div class="form-header">
-                <h2>Register Office</h2>
-                <p>Fill in the details below to create your office account.</p>
-            </div>
+            <li>
+                <span class="check">✓</span>
+                Office management
+            </li>
 
-            <div class="success-message" id="successMessage">
-                Registration completed successfully!
-            </div>
+            <li>
+                <span class="check">✓</span>
+                Employee management
+            </li>
 
-            <form id="registrationForm">
+            <li>
+                <span class="check">✓</span>
+                Easy dashboard access
+            </li>
 
-                <!-- Office Information -->
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label for="officeName">Office Name *</label>
-                        <input
-                            type="text"
-                            id="officeName"
-                            name="officeName"
-                            placeholder="Enter office name"
-                            required
-                        >
-                        <div class="error" id="officeNameError">
-                            Please enter office name.
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="officeType">Office Type *</label>
-
-                        <select id="officeType" name="officeType" required>
-                            <option value="">Select office type</option>
-                            <option value="corporate">Corporate Office</option>
-                            <option value="branch">Branch Office</option>
-                            <option value="regional">Regional Office</option>
-                            <option value="government">Government Office</option>
-                            <option value="other">Other</option>
-                        </select>
-
-                    </div>
-
-                </div>
-
-                <!-- Owner Information -->
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label for="firstName">First Name *</label>
-                        <input
-                            type="text"
-                            id="firstName"
-                            name="firstName"
-                            placeholder="Enter first name"
-                            required
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="lastName">Last Name *</label>
-                        <input
-                            type="text"
-                            id="lastName"
-                            name="lastName"
-                            placeholder="Enter last name"
-                            required
-                        >
-                    </div>
-
-                </div>
-
-                <!-- Contact Information -->
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="example@company.com"
-                            required
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            placeholder="+91 9876543210"
-                            required
-                        >
-                    </div>
-
-                </div>
-
-                <!-- Employee Details -->
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label for="employees">Number of Employees *</label>
-
-                        <select id="employees" name="employees" required>
-                            <option value="">Select range</option>
-                            <option value="1-10">1 - 10</option>
-                            <option value="11-50">11 - 50</option>
-                            <option value="51-100">51 - 100</option>
-                            <option value="101-500">101 - 500</option>
-                            <option value="500+">500+</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="department">Department *</label>
-
-                        <select id="department" name="department" required>
-                            <option value="">Select department</option>
-                            <option value="hr">Human Resources</option>
-                            <option value="it">IT</option>
-                            <option value="finance">Finance</option>
-                            <option value="sales">Sales</option>
-                            <option value="management">Management</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                </div>
-
-                <!-- Address -->
-                <div class="form-group">
-                    <label for="address">Office Address *</label>
-
-                    <textarea
-                        id="address"
-                        name="address"
-                        placeholder="Enter complete office address"
-                        required
-                    ></textarea>
-                </div>
-
-                <!-- City and State -->
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label for="city">City *</label>
-                        <input
-                            type="text"
-                            id="city"
-                            name="city"
-                            placeholder="Enter city"
-                            required
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="state">State *</label>
-                        <input
-                            type="text"
-                            id="state"
-                            name="state"
-                            placeholder="Enter state"
-                            required
-                        >
-                    </div>
-
-                </div>
-
-                <!-- Password -->
-                <div class="form-group">
-
-                    <label for="password">Password *</label>
-
-                    <div class="password-box">
-
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            placeholder="Create a strong password"
-                            required
-                        >
-
-                        <button
-                            type="button"
-                            class="show-password"
-                            id="showPassword"
-                        >
-                            SHOW
-                        </button>
-
-                    </div>
-
-                    <div class="password-strength">
-                        <div
-                            class="strength-bar"
-                            id="strengthBar"
-                        ></div>
-                    </div>
-
-                    <small id="strengthText" style="color:#64748b;">
-                        Password strength
-                    </small>
-
-                </div>
-
-                <!-- Confirm Password -->
-                <div class="form-group">
-
-                    <label for="confirmPassword">
-                        Confirm Password *
-                    </label>
-
-                    <input
-                        type="password"
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        placeholder="Re-enter your password"
-                        required
-                    >
-
-                    <div class="error" id="passwordError">
-                        Passwords do not match.
-                    </div>
-
-                </div>
-
-                <!-- Terms -->
-                <div class="terms">
-
-                    <input
-                        type="checkbox"
-                        id="terms"
-                        name="terms"
-                        required
-                    >
-
-                    <label for="terms">
-                        I agree to the
-                        <a href="#">Terms & Conditions</a>
-                        and
-                        <a href="#">Privacy Policy</a>.
-                    </label>
-
-                </div>
-
-                <!-- Submit -->
-                <button
-                    type="submit"
-                    class="register-btn"
-                >
-                    Create Office Account
-                </button>
-
-                <div class="login-link">
-                    Already have an account?
-                    <a href="#">Login here</a>
-                </div>
-
-            </form>
-
-        </div>
+        </ul>
 
     </div>
 
-    <script>
 
-        // Show / Hide Password
-        const password = document.getElementById("password");
-        const showPassword = document.getElementById("showPassword");
+    <!-- RIGHT -->
+    <div class="right">
 
-        showPassword.addEventListener("click", function () {
+        <div class="heading">
 
-            if (password.type === "password") {
-                password.type = "text";
-                showPassword.textContent = "HIDE";
-            } else {
-                password.type = "password";
-                showPassword.textContent = "SHOW";
-            }
+            <h2>Create Office Account</h2>
 
-        });
+            <p>
+                Enter your office details to create your account.
+            </p>
 
+        </div>
 
-        // Password Strength
-        const strengthBar = document.getElementById("strengthBar");
-        const strengthText = document.getElementById("strengthText");
-
-        password.addEventListener("input", function () {
-
-            const value = password.value;
-
-            let strength = 0;
-
-            if (value.length >= 8) {
-                strength++;
-            }
-
-            if (/[A-Z]/.test(value)) {
-                strength++;
-            }
-
-            if (/[a-z]/.test(value)) {
-                strength++;
-            }
-
-            if (/[0-9]/.test(value)) {
-                strength++;
-            }
-
-            if (/[^A-Za-z0-9]/.test(value)) {
-                strength++;
-            }
-
-            if (strength === 0) {
-
-                strengthBar.style.width = "0%";
-                strengthText.textContent = "Password strength";
-
-            } else if (strength <= 2) {
-
-                strengthBar.style.width = "35%";
-                strengthBar.style.background = "#ef4444";
-                strengthText.textContent = "Weak password";
-                strengthText.style.color = "#ef4444";
-
-            } else if (strength === 3) {
-
-                strengthBar.style.width = "60%";
-                strengthBar.style.background = "#f59e0b";
-                strengthText.textContent = "Medium password";
-                strengthText.style.color = "#f59e0b";
-
-            } else {
-
-                strengthBar.style.width = "100%";
-                strengthBar.style.background = "#22c55e";
-                strengthText.textContent = "Strong password";
-                strengthText.style.color = "#22c55e";
-
-            }
-
-        });
+        <div
+            class="message"
+            id="message"
+        >
+            ✓ Office registered successfully!
+        </div>
 
 
-        // Form Validation
-        const form = document.getElementById("registrationForm");
-        const passwordError = document.getElementById("passwordError");
-        const successMessage = document.getElementById("successMessage");
+        <form id="officeForm">
 
-        form.addEventListener("submit", function (event) {
+            <!-- OFFICE NAME -->
+
+            <div class="row">
+
+                <div class="field">
+
+                    <label>Office Name *</label>
+
+                    <input
+                        type="text"
+                        id="officeName"
+                        placeholder="Enter office name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Office Type *</label>
+
+                    <select id="officeType" required>
+
+                        <option value="">
+                            Select office type
+                        </option>
+
+                        <option>
+                            Corporate Office
+                        </option>
+
+                        <option>
+                            Branch Office
+                        </option>
+
+                        <option>
+                            Regional Office
+                        </option>
+
+                        <option>
+                            Government Office
+                        </option>
+
+                        <option>
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- NAME -->
+
+            <div class="row">
+
+                <div class="field">
+
+                    <label>First Name *</label>
+
+                    <input
+                        type="text"
+                        placeholder="First name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Last Name *</label>
+
+                    <input
+                        type="text"
+                        placeholder="Last name"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT -->
+
+            <div class="row">
+
+                <div class="field">
+
+                    <label>Email Address *</label>
+
+                    <input
+                        type="email"
+                        placeholder="example@company.com"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Phone Number *</label>
+
+                    <input
+                        type="tel"
+                        placeholder="+91 9876543210"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- EMPLOYEES -->
+
+            <div class="row">
+
+                <div class="field">
+
+                    <label>Employees *</label>
+
+                    <select required>
+
+                        <option value="">
+                            Select employees
+                        </option>
+
+                        <option>1 - 10</option>
+                        <option>11 - 50</option>
+                        <option>51 - 100</option>
+                        <option>101 - 500</option>
+                        <option>500+</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Department *</label>
+
+                    <select required>
+
+                        <option value="">
+                            Select department
+                        </option>
+
+                        <option>Human Resources</option>
+                        <option>IT</option>
+                        <option>Finance</option>
+                        <option>Sales</option>
+                        <option>Management</option>
+                        <option>Other</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- ADDRESS -->
+
+            <div class="field">
+
+                <label>Office Address *</label>
+
+                <textarea
+                    placeholder="Enter complete office address"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <!-- CITY STATE -->
+
+            <div class="row">
+
+                <div class="field">
+
+                    <label>City *</label>
+
+                    <input
+                        type="text"
+                        placeholder="Mumbai"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>State *</label>
+
+                    <input
+                        type="text"
+                        placeholder="Maharashtra"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="field">
+
+                <label>Password *</label>
+
+                <div class="password">
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Create password"
+                        required
+                        minlength="8"
+                    >
+
+                    <button
+                        type="button"
+                        class="show"
+                        onclick="togglePassword()"
+                    >
+                        SHOW
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONFIRM -->
+
+            <div class="field">
+
+                <label>Confirm Password *</label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm password"
+                    required
+                >
+
+            </div>
+
+
+            <!-- TERMS -->
+
+            <div class="terms">
+
+                <input
+                    type="checkbox"
+                    id="terms"
+                    required
+                >
+
+                <label for="terms">
+
+                    I agree to the
+                    <a href="#">Terms & Conditions</a>
+                    and
+                    <a href="#">Privacy Policy</a>.
+
+                </label>
+
+            </div>
+
+
+            <!-- BUTTON -->
+
+            <button
+                type="submit"
+                class="register"
+            >
+                Create Office Account
+            </button>
+
+
+            <div class="login">
+
+                Already have an account?
+                <a href="#">
+                    Login
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    // SHOW / HIDE PASSWORD
+
+    function togglePassword() {
+
+        const password =
+            document.getElementById("password");
+
+        const button =
+            document.querySelector(".show");
+
+        if (password.type === "password") {
+
+            password.type = "text";
+
+            button.textContent = "HIDE";
+
+        } else {
+
+            password.type = "password";
+
+            button.textContent = "SHOW";
+
+        }
+
+    }
+
+
+    // FORM SUBMIT
+
+    document
+        .getElementById("officeForm")
+        .addEventListener("submit", function(event) {
 
             event.preventDefault();
 
-            // Check password match
-            if (password.value !==
-                document.getElementById("confirmPassword").value) {
+            const password =
+                document.getElementById("password").value;
 
-                passwordError.style.display = "block";
+            const confirm =
+                document.getElementById("confirmPassword").value;
+
+            if (password !== confirm) {
+
+                alert("Passwords do not match!");
+
                 return;
 
-            } else {
-
-                passwordError.style.display = "none";
-
             }
 
-            // Show success message
-            successMessage.style.display = "block";
+            const message =
+                document.getElementById("message");
 
-            // Scroll to success message
-            successMessage.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
+            message.style.display = "block";
+
+            message.scrollIntoView({
+                behavior: "smooth"
             });
 
-            // Get form data
-            const formData = new FormData(form);
-
-            console.log("Office Registration Data:");
-
-            for (const [key, value] of formData.entries()) {
-                console.log(key + ":", value);
-            }
-
-            // Reset form after successful registration
-            setTimeout(function () {
-                form.reset();
-
-                strengthBar.style.width = "0%";
-                strengthText.textContent = "Password strength";
-                strengthText.style.color = "#64748b";
-
-            }, 1500);
+            console.log("Office registration submitted.");
 
         });
 
-    </script>
+</script>
 
 </body>
 </html>
